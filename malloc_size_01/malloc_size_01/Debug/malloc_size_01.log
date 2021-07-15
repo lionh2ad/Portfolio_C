@@ -1,0 +1,5 @@
+﻿  malloc_size_01.c
+D:\Users\lionh\Documents\Portfolio\malloc_size_01\malloc_size_01\malloc_size_01.c(11,21): warning C4013: 'malloc'이(가) 정의되지 않았습니다. extern은 int형을 반환하는 것으로 간주합니다.
+D:\Users\lionh\Documents\Portfolio\malloc_size_01\malloc_size_01\malloc_size_01.c(35,8): warning C4013: 'free'이(가) 정의되지 않았습니다. extern은 int형을 반환하는 것으로 간주합니다.
+D:\Users\lionh\Documents\Portfolio\malloc_size_01\malloc_size_01\malloc_size_01.c(54,20): warning C4013: '_msize'이(가) 정의되지 않았습니다. extern은 int형을 반환하는 것으로 간주합니다.
+  malloc_size_01.vcxproj -> D:\Users\lionh\Documents\Portfolio\malloc_size_01\Debug\malloc_size_01.exe
