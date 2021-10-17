@@ -1,4 +1,4 @@
-#include"malloc_list.h"
+#include"struct_vector.h"
 
 void main() {
 	run();
@@ -15,7 +15,7 @@ void run() {
 		scanf("%d", &choice);
 		switch (choice) {
 		case 1:
-			if(count == 0){
+			if (count == 0) {
 				leo = first_push_data(leo);
 				count++;
 			}
@@ -60,15 +60,15 @@ Lion* first_push_data(Lion* leo) {
 	return leo;
 }
 Lion* push_data(Lion* leo) {
-	int i=0,leo_size = 0, user_money = 0;
+	int i = 0, leo_size = 0, user_money = 0;
 	float user_old = 0;
 	Lion* temp_leo;
-	leo_size = _msize(leo)/12;
-	temp_leo = (Lion*)malloc(sizeof(Lion) * (leo_size+1));
-	for (i = 0;i<leo_size+1;i++) {
-		temp_leo[leo_size].name = (char*)malloc(sizeof(char)*100);
+	leo_size = _msize(leo) / 12;
+	temp_leo = (Lion*)malloc(sizeof(Lion) * (leo_size + 1));
+	for (i = 0; i < leo_size + 1; i++) {
+		temp_leo[leo_size].name = (char*)malloc(sizeof(char) * 100);
 	}
-	for (i=0;i<leo_size;i++) {
+	for (i = 0; i < leo_size; i++) {
 		temp_leo[i].money = leo[i].money;
 		temp_leo[i].name = leo[i].name;
 		temp_leo[i].old = leo[i].old;
@@ -88,12 +88,12 @@ Lion* push_data(Lion* leo) {
 	temp_leo[leo_size].money = user_money;
 	temp_leo[leo_size].old = user_old;
 
-	leo = (Lion*)malloc(sizeof(Lion)*(leo_size+1));
-	for (i = 0;i<leo_size+1;i++) {
-		leo[i].name = (char*)malloc(sizeof(char)*100);
+	leo = (Lion*)malloc(sizeof(Lion) * (leo_size + 1));
+	for (i = 0; i < leo_size + 1; i++) {
+		leo[i].name = (char*)malloc(sizeof(char) * 100);
 	}
 
-	for (i=0;i<leo_size+1;i++) {
+	for (i = 0; i < leo_size + 1; i++) {
 		leo[i].money = temp_leo[i].money;
 		leo[i].name = temp_leo[i].name;
 		leo[i].old = temp_leo[i].old;
@@ -134,10 +134,10 @@ Lion* pop_data(Lion* leo) {
 		leo[i].old = temp_leo[i].old;
 	}
 
-	for (i = user_pop_data-1; i < leo_size - 1; i++) {
-		leo[i].money = temp_leo[i+1].money;
-		leo[i].name = temp_leo[i+1].name;
-		leo[i].old = temp_leo[i+1].old;
+	for (i = user_pop_data - 1; i < leo_size - 1; i++) {
+		leo[i].money = temp_leo[i + 1].money;
+		leo[i].name = temp_leo[i + 1].name;
+		leo[i].old = temp_leo[i + 1].old;
 	}
 
 	free(temp_leo);
@@ -145,11 +145,11 @@ Lion* pop_data(Lion* leo) {
 	return leo;
 }
 void show_data(Lion* leo) {
-	int i = 0, leo_size=0;
+	int i = 0, leo_size = 0;
 	leo_size = _msize(leo) / 12;
-	for (i = 0;i<leo_size; i++) {
-		printf("%d번째 가격은 : %d \n", i+1, leo[i].money);
-		printf("%d번째 이름은 : %s \n", i+1, leo[i].name);
-		printf("%d번째 나이는 : %.2f \n\n", i+1, leo[i].old);
+	for (i = 0; i < leo_size; i++) {
+		printf("%d번째 가격은 : %d \n", i + 1, leo[i].money);
+		printf("%d번째 이름은 : %s \n", i + 1, leo[i].name);
+		printf("%d번째 나이는 : %.2f \n\n", i + 1, leo[i].old);
 	}
 }

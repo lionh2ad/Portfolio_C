@@ -3,9 +3,9 @@
 #pragma warning(disable:4996)
 
 typedef struct lion {
-	int money;
-	char* name;
-	float old;
+    int money;
+    char* name;
+    float old;
 }Lion;
 
 void run();
