@@ -12,7 +12,7 @@ typedef struct computer {
 
 void run();
 void push_computer(Computer* main_com);
-
+void pop_computer(Computer* main_com);
 void show_computer(Computer* show_com);
 
 void main_display() {

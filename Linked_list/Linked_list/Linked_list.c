@@ -9,9 +9,7 @@ void run() {
 	bool main_choice = true;
 
 	Computer* head;
-	Computer* show_com;
 	head = (Computer*)malloc(sizeof(Computer));
-	show_com = (Computer*)malloc(sizeof(Computer));
 	head->next = NULL;
 
 	main_display();
@@ -24,10 +22,10 @@ void run() {
 			push_computer(head);
 			break;
 		case 2:
+			pop_computer(head);
 			break;
 		case 3:
-			show_com = head->next;
-			show_computer(show_com);
+			show_computer(head);
 			break;
 		case 4:
 			main_choice = false;
@@ -37,13 +35,11 @@ void run() {
 		}
 	}
 
-	show_com = head->next;
-	while (show_com != NULL) {
-		Computer* next = show_com->next;
-		free(show_com);
-		show_com = next;
+	while (head->next != NULL) {
+		Computer* next = head->next->next;
+		free(head->next);
+		head->next = next;
 	}
-
 	free(head);
 }
 
@@ -68,7 +64,31 @@ void push_computer(Computer* main_com) {
 	scanf("%s", temp_com->name);
 }
 
-void show_computer(Computer* show_com) {
+void pop_computer(Computer* main_com) {
+	Computer* pop_com;
+	Computer* temp_com;
+	pop_com = (Computer*)malloc(sizeof(Computer));
+	temp_com = (Computer*)malloc(sizeof(Computer));
+	pop_com->name = (char*)malloc(sizeof(char) * 50);
+
+	printf("1. pop 할 데이터를 입력 하시오.\n");
+	printf("name : ");
+	scanf("%s", pop_com->name);
+	while (main_com->next != NULL) {
+		if (strcmp(main_com->next->name , pop_com->name)==0) {
+			temp_com->next = main_com->next->next;
+			main_com->next = temp_com->next;
+		}
+		main_com = main_com->next;
+	}
+
+}
+
+void show_computer(Computer* head) {
+	Computer* show_com;
+	show_com = (Computer*)malloc(sizeof(Computer));
+	show_com = head->next;
+
 	int count = 1;
 	while (show_com != NULL) {
 		printf("%d. ram  : %d\n", count, show_com->ram);
