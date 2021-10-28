@@ -32,6 +32,7 @@ void run() {
 			break;
 		default:
 			printf("1에서 4사이의 정수를 입력 하시오. \n");
+			break;
 		}
 	}
 
@@ -74,14 +75,18 @@ void pop_computer(Computer* main_com) {
 	printf("1. pop 할 데이터를 입력 하시오.\n");
 	printf("name : ");
 	scanf("%s", pop_com->name);
-	while (main_com->next != NULL) {
+	while (main_com -> next != NULL) {
 		if (strcmp(main_com->next->name , pop_com->name)==0) {
 			temp_com->next = main_com->next->next;
+			//free(main_com->next);
 			main_com->next = temp_com->next;
+			free(temp_com);
 		}
 		main_com = main_com->next;
+		if (main_com == NULL) {
+			break;
+		}
 	}
-
 }
 
 void show_computer(Computer* head) {
