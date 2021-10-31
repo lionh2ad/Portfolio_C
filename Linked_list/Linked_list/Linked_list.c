@@ -16,24 +16,30 @@ void run() {
 
 	while (main_choice) {
 		printf("원하는 메뉴를 선택 하시오. \n");
-		scanf("%d", &choice);
-		switch (choice) {
-		case 1:
-			push_computer(head);
-			break;
-		case 2:
-			pop_computer(head);
-			break;
-		case 3:
-			show_computer(head);
-			break;
-		case 4:
-			main_choice = false;
-			break;
-		default:
+		//scanf("%d", &choice);
+		if (scanf("%d", &choice)==0) {
 			printf("1에서 4사이의 정수를 입력 하시오. \n");
-			break;
+			rewind(stdin);
+		}else{
+			switch (choice) {
+			case 1:
+				push_computer(head);
+				break;
+			case 2:
+				pop_computer(head);
+				break;
+			case 3:
+				show_computer(head);
+				break;
+			case 4:
+				main_choice = false;
+				break;
+			default:
+				printf("1에서 4사이의 정수를 입력 하시오. \n");
+				break;
+			}
 		}
+		
 	}
 
 	while (head->next != NULL) {
